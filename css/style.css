@@ -220,32 +220,49 @@ button {
   z-index: 1;
 }
 
-/* Watermark typography in Hero */
-.hero-watermark {
-  position: absolute;
+/* Persistent Dynamic Scrolling Watermark Layer */
+.dynamic-scroll-watermark {
+  position: fixed;
+  top: 36vh;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
   font-family: var(--font-display);
   font-weight: 900;
-  user-select: none;
-  pointer-events: none;
-  text-transform: uppercase;
-  z-index: 1;
-}
-
-.aphrodite-watermark {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: clamp(3.2rem, 11vw, 10rem);
-  color: rgba(255, 255, 255, 0.08);
   letter-spacing: 20px;
   white-space: nowrap;
-  text-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+  user-select: none;
+  pointer-events: none;
+  z-index: 2;
+  transition: color 0.7s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.7s ease, opacity 0.5s ease;
+  will-change: transform, color;
 }
 
-/* Hero Portrait Container & Seamlessly Blended Image */
+/* Watermark Color Palettes per Section */
+.dynamic-scroll-watermark.section-hero {
+  color: rgba(255, 255, 255, 0.08);
+  text-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+}
+
+.dynamic-scroll-watermark.section-about {
+  color: rgba(45, 30, 24, 0.22);
+  text-shadow: 0 0 30px rgba(147, 126, 114, 0.35);
+}
+
+.dynamic-scroll-watermark.section-gallery {
+  color: rgba(120, 100, 85, 0.12);
+  text-shadow: none;
+}
+
+.dynamic-scroll-watermark.section-profile {
+  color: rgba(229, 168, 46, 0.09);
+  text-shadow: 0 0 30px rgba(229, 168, 46, 0.15);
+}
+
+/* Hero Portrait Container & Seamlessly Blended Image (Overlays Watermark) */
 .hero-portrait-container {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   width: 100%;
   max-width: 440px;
   margin: 0 auto;
@@ -305,7 +322,7 @@ button {
   background-color: var(--color-taupe);
   color: var(--color-white);
   padding: 4rem 2rem 6.5rem;
-  z-index: 2;
+  z-index: 1;
   /* Diagonal cuts matching temp.jpg */
   clip-path: polygon(0 8vw, 100% 0, 100% calc(100% - 6vw), 0 100%);
   margin-top: -6vw;
@@ -315,6 +332,7 @@ button {
   max-width: var(--container-max-width);
   margin: 0 auto;
   position: relative;
+  z-index: 5;
   padding-top: 1rem;
 }
 
@@ -519,11 +537,14 @@ button {
   );
   padding: 4.5rem 2rem 7rem;
   position: relative;
+  z-index: 1;
 }
 
 .gallery-container {
   max-width: var(--container-max-width);
   margin: 0 auto;
+  position: relative;
+  z-index: 5;
 }
 
 /* Top Accent Divider */
@@ -615,6 +636,7 @@ button {
   display: flex;
   align-items: center;
   padding: 6rem 2rem 8.5rem;
+  z-index: 1;
 }
 
 /* Atmospheric Blurred Background */
@@ -636,7 +658,7 @@ button {
 
 .profile-showcase-container {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   max-width: 1080px;
   margin: 0 auto;
   width: 100%;
@@ -1257,5 +1279,31 @@ button {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. Scroll Reveal & Modern Motion Utility Classes
+   -------------------------------------------------------------------------- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .dynamic-scroll-watermark {
+    transition: none !important;
   }
 }

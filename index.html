@@ -22,9 +22,37 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN & Theme Configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'aph-gold': '#e5a82e',
+            'aph-taupe': '#937e72',
+            'aph-taupe-dark': '#846f63',
+            'aph-charcoal': '#141416',
+            'aph-cream': '#f8f4ec',
+          },
+          fontFamily: {
+            display: ['Montserrat', 'sans-serif'],
+            body: ['Open Sans', 'sans-serif'],
+            signature: ['Caveat', 'cursive'],
+          }
+        }
+      }
+    };
+  </script>
 </head>
 
 <body>
+
+  <!-- Persistent Dynamic Scrolling Watermark (Travels seamlessly across sections) -->
+  <div id="dynamic-scroll-watermark" class="dynamic-scroll-watermark section-hero" aria-hidden="true">
+    APHRODITE
+  </div>
 
   <!-- ==================== HEADER & NAVBAR ==================== -->
   <header class="site-header" id="site-header">
@@ -78,10 +106,7 @@
     <section class="hero-section" id="home">
       <!-- Charcoal Top Container with Model Portrait -->
       <div class="hero-top-wrap">
-        <!-- Watermark Background Typography -->
-        <div class="hero-watermark aphrodite-watermark" aria-hidden="true">APHRODITE</div>
-
-        <!-- Hero Portrait Image (7.jpg) -->
+        <!-- Hero Portrait Image (7.jpg, overlays the dynamic watermark) -->
         <div class="hero-portrait-container">
           <div class="image-placeholder hero-portrait-placeholder has-image" data-slot="hero-portrait"
             id="hero-portrait-slot">
@@ -132,7 +157,7 @@
           <!-- Hero Taupe Main Content Grid -->
           <div class="taupe-grid">
             <!-- Left: Model Title -->
-            <div class="model-title-col">
+            <div class="model-title-col reveal-on-scroll" data-delay="0">
               <div class="accent-bar-wrap">
                 <span class="accent-pill"></span>
                 <span class="accent-line"></span>
@@ -143,7 +168,7 @@
             </div>
 
             <!-- Right: Welcome with Updated Text -->
-            <div class="welcome-col">
+            <div class="welcome-col reveal-on-scroll" data-delay="150">
               <h2 class="welcome-title">WELCOME</h2>
               <div class="welcome-content-block">
                 <h3 class="welcome-lead">LET'S WORK TOGETHER</h3>
@@ -179,12 +204,12 @@
 
           <!-- Column 1: Left Column with Header & Photo Slot 1 (1.jpg) -->
           <div class="gallery-col gallery-col-left">
-            <div class="gallery-header-block">
+            <div class="gallery-header-block reveal-on-scroll" data-delay="0">
               <h2 class="gallery-main-title">GALLERY</h2>
             </div>
 
             <!-- Slot 1: resources/TA/1.jpg -->
-            <div class="gallery-slot gallery-slot-1">
+            <div class="gallery-slot gallery-slot-1 reveal-on-scroll" data-delay="100">
               <div class="image-placeholder has-image" data-slot="gallery-1" id="gallery-slot-1">
                 <img src="resources/TA/1.jpg" alt="APHRODITE Portfolio - Gallery Image 1" loading="lazy">
               </div>
@@ -194,14 +219,14 @@
           <!-- Column 2: Center Column with Photo Slot 2 (2.jpg) & Slot 3 (3.jpg) -->
           <div class="gallery-col gallery-col-center">
             <!-- Slot 2: resources/TA/2.jpg -->
-            <div class="gallery-slot gallery-slot-2">
+            <div class="gallery-slot gallery-slot-2 reveal-on-scroll" data-delay="150">
               <div class="image-placeholder has-image" data-slot="gallery-2" id="gallery-slot-2">
                 <img src="resources/TA/2.jpg" alt="APHRODITE Portfolio - Gallery Image 2" loading="lazy">
               </div>
             </div>
 
             <!-- Slot 3: resources/TA/3.jpg -->
-            <div class="gallery-slot gallery-slot-3">
+            <div class="gallery-slot gallery-slot-3 reveal-on-scroll" data-delay="250">
               <div class="image-placeholder has-image" data-slot="gallery-3" id="gallery-slot-3">
                 <img src="resources/TA/3.jpg" alt="APHRODITE Portfolio - Gallery Image 3" loading="lazy">
               </div>
@@ -211,21 +236,21 @@
           <!-- Column 3: Right Column with Photo Slot 4 (4.jpg), Slot 5 (5.jpg), & Slot 6 (8.jpg) -->
           <div class="gallery-col gallery-col-right">
             <!-- Slot 4: resources/TA/4.jpg -->
-            <div class="gallery-slot gallery-slot-4">
+            <div class="gallery-slot gallery-slot-4 reveal-on-scroll" data-delay="200">
               <div class="image-placeholder has-image" data-slot="gallery-4" id="gallery-slot-4">
                 <img src="resources/TA/4.jpg" alt="APHRODITE Portfolio - Gallery Image 4" loading="lazy">
               </div>
             </div>
 
             <!-- Slot 5: resources/TA/5.jpg -->
-            <div class="gallery-slot gallery-slot-5">
+            <div class="gallery-slot gallery-slot-5 reveal-on-scroll" data-delay="300">
               <div class="image-placeholder has-image" data-slot="gallery-5" id="gallery-slot-5">
                 <img src="resources/TA/5.jpg" alt="APHRODITE Portfolio - Gallery Image 5" loading="lazy">
               </div>
             </div>
 
             <!-- Slot 6: resources/TA/8.jpg -->
-            <div class="gallery-slot gallery-slot-6">
+            <div class="gallery-slot gallery-slot-6 reveal-on-scroll" data-delay="400">
               <div class="image-placeholder has-image" data-slot="gallery-6" id="gallery-slot-6">
                 <img src="resources/TA/8.jpg" alt="APHRODITE Portfolio - Gallery Image 6" loading="lazy">
               </div>
@@ -245,7 +270,7 @@
 
       <div class="profile-showcase-container">
         <!-- Floating Showcase Card matching profile section.jpg (excluding side navbar) -->
-        <div class="showcase-card">
+        <div class="showcase-card reveal-on-scroll" data-delay="0">
 
           <!-- Card Top Brand Bar -->
           <div class="showcase-card-header">
