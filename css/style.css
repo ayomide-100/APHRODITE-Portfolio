@@ -220,7 +220,7 @@ button {
   z-index: 1;
 }
 
-/* Persistent Dynamic Scrolling Watermark Layer */
+/* Persistent Dynamic Scrolling Watermark Layer (Enhanced Atmospheric Diffused Blur) */
 .dynamic-scroll-watermark {
   position: fixed;
   top: 36vh;
@@ -234,29 +234,31 @@ button {
   user-select: none;
   pointer-events: none;
   z-index: 2;
+  filter: blur(11px);
+  -webkit-filter: blur(11px);
   transition: color 0.7s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.7s ease, opacity 0.5s ease;
-  will-change: transform, color;
+  will-change: transform, color, filter;
 }
 
-/* Watermark Color Palettes per Section */
+/* Watermark Color Palettes per Section (enhanced atmospheric blur presence) */
 .dynamic-scroll-watermark.section-hero {
-  color: rgba(255, 255, 255, 0.08);
-  text-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.16);
+  text-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
 }
 
 .dynamic-scroll-watermark.section-about {
-  color: rgba(45, 30, 24, 0.22);
-  text-shadow: 0 0 30px rgba(147, 126, 114, 0.35);
+  color: rgba(45, 30, 24, 0.36);
+  text-shadow: 0 0 40px rgba(147, 126, 114, 0.45);
 }
 
 .dynamic-scroll-watermark.section-gallery {
-  color: rgba(120, 100, 85, 0.12);
+  color: rgba(120, 100, 85, 0.22);
   text-shadow: none;
 }
 
 .dynamic-scroll-watermark.section-profile {
-  color: rgba(229, 168, 46, 0.09);
-  text-shadow: 0 0 30px rgba(229, 168, 46, 0.15);
+  color: rgba(229, 168, 46, 0.16);
+  text-shadow: 0 0 40px rgba(229, 168, 46, 0.3);
 }
 
 /* Hero Portrait Container & Seamlessly Blended Image (Overlays Watermark) */
