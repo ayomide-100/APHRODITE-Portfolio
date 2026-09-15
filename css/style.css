@@ -600,7 +600,8 @@ button {
 .gallery-slot-2 .image-placeholder { height: 440px; }
 .gallery-slot-3 .image-placeholder { height: 380px; }
 .gallery-slot-4 .image-placeholder { height: 450px; }
-.gallery-slot-5 .image-placeholder { height: 330px; }
+.gallery-slot-5 .image-placeholder { height: 370px; }
+.gallery-slot-5 .image-placeholder img { object-position: center 0%; }
 .gallery-slot-6 .image-placeholder { height: 340px; }
 
 /* --------------------------------------------------------------------------
@@ -828,15 +829,73 @@ button {
   border-color: var(--color-white);
 }
 
-.showcase-experience {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: #9da4b6;
-  line-height: 1.7;
+/* Selected Experience Block (Editorial High-Fashion Styling) */
+.showcase-experience-block {
+  margin-top: 1.4rem;
+  padding-left: 1.1rem;
+  border-left: 2.5px solid var(--color-accent-gold);
+  background: linear-gradient(90deg, rgba(229, 168, 46, 0.07) 0%, transparent 85%);
+  padding-top: 0.4rem;
+  padding-bottom: 0.5rem;
 }
 
-.showcase-experience strong {
-  color: rgba(255, 255, 255, 0.9);
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.65rem;
+}
+
+.exp-accent-line {
+  width: 18px;
+  height: 2px;
+  background: var(--color-accent-gold);
+  border-radius: 1px;
+}
+
+.exp-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+}
+
+.experience-brands {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.6rem;
+  line-height: 1.6;
+}
+
+.brand-item {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  transition: color var(--transition-speed) ease;
+}
+
+.brand-item:hover {
+  color: var(--color-accent-gold);
+}
+
+.brand-divider {
+  color: rgba(229, 168, 46, 0.5);
+  font-size: 1.15rem;
+  font-weight: 300;
+  user-select: none;
+}
+
+.brand-more {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #a6adb9;
+  letter-spacing: 0.3px;
 }
 
 /* Footer Row: Actions & Signature Graphic */
